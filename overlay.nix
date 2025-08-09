@@ -7,6 +7,7 @@ let
 in rec {
   dapptoolsSrc = self.callPackage (import ./nix/dapptools-src.nix) {};
 
+  /*
   haskellPackages =
     super.haskellPackages.override (old: {
     overrides = lib.composeExtensions (old.overrides or (_: _: {})) (
@@ -27,6 +28,7 @@ in rec {
       import ./haskell.nix { inherit lib; pkgs = self; wrapped = false; shared = true; }
     );
   });
+  */
 
   solidityPackage = import ./nix/solidity-package.nix {
     inherit (self) pkgs;
@@ -97,7 +99,7 @@ in rec {
   hevm = self.pkgs.haskell.lib.justStaticExecutables self.haskellPackages.hevm;
 
   # uses solc, z3 and cvc4 from PATH
-  hevmUnwrapped = self.pkgs.haskell.lib.justStaticExecutables self.unwrappedHaskellPackages.hevm;
+  # hevmUnwrapped = self.pkgs.haskell.lib.justStaticExecutables self.unwrappedHaskellPackages.hevm;
 
   libff = self.callPackage (import ./nix/libff.nix) {};
 
