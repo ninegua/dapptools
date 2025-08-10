@@ -7,14 +7,14 @@ let
 in rec {
   dapptoolsSrc = self.callPackage (import ./nix/dapptools-src.nix) {};
 
-  /*
-  haskellPackages =
-    super.haskellPackages.override (old: {
-    overrides = lib.composeExtensions (old.overrides or (_: _: {})) (
-      import ./haskell.nix { inherit lib; pkgs = self;}
-    );
+  haskellPackages = super.haskellPackages.extend (hs: _: {
+    hevm = self.pkgs.haskell.lib.dontCheck (hs.callCabal2nix "hevm" (builtins.fetchGit {
+      url = "https://github.com/ninegua/hevm";
+      rev = "550bfdac5fe445aff4004a200f29aff499495753";
+    }) { secp256k1 = self.secp256k1; });
   });
 
+  /*
   unwrappedHaskellPackages =
     super.haskellPackages.override (old: {
     overrides = lib.composeExtensions (old.overrides or (_: _: {})) (
