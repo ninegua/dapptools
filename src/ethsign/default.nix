@@ -6,7 +6,8 @@ buildGoModule rec {
 
   src = ./.;
 
-  vendorHash = "sha256:1zbsq1lyqinyzv5x4p1xgkxsyb7y92fbmf44gyaix34xrag5s27m";
+  vendorHash = "sha256-LSnwKW79m70RiVv9INJb8oEzDmouJtiqYLHNBD8KAzY=";
+  proxyVendor = true;
   runVend = true;
 
   meta = {
