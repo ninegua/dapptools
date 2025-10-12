@@ -77,6 +77,7 @@ rec {
     solc_0_8_19 = { version = "0.8.19"; path = "solc-linux-amd64-v0.8.19+commit.7dd6d404"; sha256 = "0j7bv5yc3jfk7xbyamjalpl5zbkqj4n1jdzcn8msdsx8r4yisp3s"; };
     solc_0_8_20 = { version = "0.8.20"; path = "solc-linux-amd64-v0.8.20+commit.a1b79de6"; sha256 = "10m7zl0cgwd47l17zd479a43nngi34259p3z6cjiql4wvx7x8y84"; };
     solc_0_8_21 = { version = "0.8.21"; path = "solc-linux-amd64-v0.8.21+commit.d9974bed"; sha256 = "1pw1b8a1y48vpc5rmkm0ci4yjsg1yg9xr62mvvl6jp71if4pm1gj"; };
+    solc_0_8_24 = { version = "0.8.24"; path = "solc-linux-amd64-v0.8.24+commit.e11b9ed9"; sha256 = "sha256-+wOimlF0UrnxK89FnvN9ClQ3Zbs7vJEecKh9ajfDDV8="; };
   };
   x86_64-darwin  = {
     solc_0_3_6 = { version = "0.3.6"; path = "solc-macosx-amd64-v0.3.6+commit.988fe5e5"; sha256 = "1x4xq0j84sfh9jjvv6x3yvhc76785vfr1mkmkq5idn3knfsq3m82"; };
