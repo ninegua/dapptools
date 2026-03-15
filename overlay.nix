@@ -7,10 +7,10 @@ let
 in rec {
   dapptoolsSrc = self.callPackage (import ./nix/dapptools-src.nix) {};
 
-  haskellPackages = super.haskellPackages.extend (hs: _: {
+  haskellPackages = super.haskell.packages.ghc984.extend (hs: _: {
     hevm = self.pkgs.haskell.lib.dontCheck (hs.callCabal2nix "hevm" (builtins.fetchGit {
       url = "https://github.com/ninegua/hevm";
-      rev = "550bfdac5fe445aff4004a200f29aff499495753";
+      rev = "9532ac1989bf71e90fd936ac95e7641c86bc4fda";
     }) { secp256k1 = self.secp256k1; });
   });
 
@@ -101,7 +101,7 @@ in rec {
   # uses solc, z3 and cvc4 from PATH
   # hevmUnwrapped = self.pkgs.haskell.lib.justStaticExecutables self.unwrappedHaskellPackages.hevm;
 
-  libff = self.callPackage (import ./nix/libff.nix) {};
+  # libff = self.callPackage (import ./nix/libff.nix) {};
 
   jays = (
     self.pkgs.haskell.lib.justStaticExecutables
