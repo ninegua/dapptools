@@ -7,7 +7,7 @@ let
 in rec {
   dapptoolsSrc = self.callPackage (import ./nix/dapptools-src.nix) {};
 
-  haskellPackages = super.haskell.packages.ghc984.extend (hs: _: {
+  haskellPackages = super.haskell.packages.ghc910.extend (hs: _: {
     hevm = self.pkgs.haskell.lib.dontCheck (hs.callCabal2nix "hevm" (builtins.fetchGit {
       url = "https://github.com/ninegua/hevm";
       rev = "9532ac1989bf71e90fd936ac95e7641c86bc4fda";
@@ -96,7 +96,7 @@ in rec {
         (builtins.getAttr super.system (import ./nix/solc-static-versions.nix));
 
   # uses solc, z3 and cvc4 from nix
-  hevm = self.pkgs.haskell.lib.justStaticExecutables self.haskellPackages.hevm;
+  hevm = self.haskellPackages.hevm;
 
   # uses solc, z3 and cvc4 from PATH
   # hevmUnwrapped = self.pkgs.haskell.lib.justStaticExecutables self.unwrappedHaskellPackages.hevm;
