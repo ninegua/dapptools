@@ -101,7 +101,7 @@ in rec {
   # uses solc, z3 and cvc4 from PATH
   # hevmUnwrapped = self.pkgs.haskell.lib.justStaticExecutables self.unwrappedHaskellPackages.hevm;
 
-  # libff = self.callPackage (import ./nix/libff.nix) {};
+  libff = self.callPackage (import ./nix/libff.nix) {};
 
   jays = (
     self.pkgs.haskell.lib.justStaticExecutables

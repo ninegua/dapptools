@@ -1,0 +1,13 @@
+diff --git a/libff/CMakeLists.txt b/libff/CMakeLists.txt
+index 00c8ded..e8802e8 100755
+--- a/libff/CMakeLists.txt
++++ b/libff/CMakeLists.txt
+@@ -110,7 +110,7 @@ target_include_directories(
+  )
+ 
+ install(
+-  DIRECTORY "" DESTINATION "include/libff"
++  DIRECTORY . DESTINATION "include/libff"
+   FILES_MATCHING
+   PATTERN "*.hpp"
+   PATTERN "*.tcc"
